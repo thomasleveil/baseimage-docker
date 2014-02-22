@@ -28,4 +28,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     pkg_cmd << "usermod -a -G docker vagrant; "
     config.vm.provision :shell, :inline => pkg_cmd
   end
+    
+  # Install vagrant bash completion
+  config.vm.provision :shell, :inline => "wget -O /etc/bash_completion.d/docker https://github.com/dotcloud/docker/raw/master/contrib/completion/bash/docker; "
 end
